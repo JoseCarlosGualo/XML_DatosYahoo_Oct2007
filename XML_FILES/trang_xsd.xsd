@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="ystfeed">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="vespaadd"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="vespaadd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="document"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="document">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="uri"/>
+        <xs:element ref="subject"/>
+        <xs:element minOccurs="0" ref="content"/>
+        <xs:element minOccurs="0" ref="bestanswer"/>
+        <xs:element minOccurs="0" ref="nbestanswers"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="cat"/>
+          <xs:element ref="maincat"/>
+          <xs:element ref="subcat"/>
+        </xs:sequence>
+        <xs:element ref="date"/>
+        <xs:element minOccurs="0" ref="res_date"/>
+        <xs:element minOccurs="0" ref="vot_date"/>
+        <xs:element minOccurs="0" ref="lastanswerts"/>
+        <xs:element ref="qlang"/>
+        <xs:element ref="qintl"/>
+        <xs:element ref="language"/>
+        <xs:element minOccurs="0" ref="id"/>
+        <xs:element minOccurs="0" ref="best_id"/>
+      </xs:sequence>
+      <xs:attribute name="type" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="uri" type="xs:integer"/>
+  <xs:element name="subject" type="xs:string"/>
+  <xs:element name="content" type="xs:string"/>
+  <xs:element name="bestanswer" type="xs:string"/>
+  <xs:element name="nbestanswers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="answer_item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="answer_item" type="xs:string"/>
+  <xs:element name="cat" type="xs:string"/>
+  <xs:element name="maincat" type="xs:string"/>
+  <xs:element name="subcat" type="xs:string"/>
+  <xs:element name="date" type="xs:integer"/>
+  <xs:element name="res_date" type="xs:integer"/>
+  <xs:element name="vot_date" type="xs:integer"/>
+  <xs:element name="lastanswerts" type="xs:integer"/>
+  <xs:element name="qlang" type="xs:NCName"/>
+  <xs:element name="qintl" type="xs:NCName"/>
+  <xs:element name="language" type="xs:NCName"/>
+  <xs:element name="id" type="xs:NCName"/>
+  <xs:element name="best_id" type="xs:NCName"/>
+</xs:schema>
